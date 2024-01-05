@@ -32,6 +32,11 @@ naive_rbm = GaussianNB()
 naive_simples = GaussianNB()
 
 #Treinando classificador com RBM através de Pipeline
+
+#x = rbm.fit_transform(previsores_treino)
+# rbm.n_components - Valores da camada oculta (Imagens Redimensionada(Codificada))
+# rbm.components_ - Valor reconstruido através da camada oculta (Imagem Reconstruida(Decodificada))
+
 classificador_rbm = Pipeline(steps= [('rbm', rbm), ('naive', naive_rbm)])
 classificador_rbm.fit(previsores_treino, classe_treino)
 
